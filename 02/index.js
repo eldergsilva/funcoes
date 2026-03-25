@@ -45,7 +45,7 @@ const carro = {
     }
 };
 
-// --- Sequência de execução (item f) ---
+ 
 carro.desligar();
 carro.ligar();
 carro.ligar();
