@@ -27,11 +27,19 @@ const contaBancaria = {
 
         const valorEmReais = valor / 100;
         return `Saque de R$${valorEmReais} realizado para o cliente: ${this.nome}`;
+    },
+    extrato: function () {
+        let relatorioHistorico = "";        
+        for (let i = 0; i < this.historicos.length; i++) {
+            const item = this.historicos[i];
+            relatorioHistorico += `\n${item.tipo} de $${item.valor / 100}`;
+        }
+        return `Extrato de ${this.nome} - Saldo: R$${this.saldo / 100}\nHistórico:${relatorioHistorico}`;
     }
 }
 
-// Testes
-console.log(contaBancaria.depositar(10000));  
-console.log(contaBancaria.sacar(5000));      
-console.log(contaBancaria.sacar(6000));      
-console.log(contaBancaria.historicos);       
+ 
+console.log(contaBancaria.depositar(10000));
+console.log(contaBancaria.sacar(50000));
+console.log(contaBancaria.sacar(5000));
+console.log(contaBancaria.extrato());
